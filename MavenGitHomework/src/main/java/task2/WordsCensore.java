@@ -16,6 +16,9 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.assertTrue;
 
 public class WordsCensore {
+    @Option(name = "-n", required = true, usage = "set a quantity of words for search in the text")
+    int wordToFind;
+
     @Option(name = "-size", required = true, usage = "set a start word for analyze the text")
     int size;
 
@@ -28,6 +31,10 @@ public class WordsCensore {
 
     public int getStart() {
         return start;
+    }
+
+    public int getWordToFind() {
+        return wordToFind;
     }
 
     public WordsCensore(String... args) {
@@ -68,7 +75,10 @@ public class WordsCensore {
                     if (exception.contains(exceptionWord)) {
                         return "цензура";
                     } else return exceptionWord;
-                }).collect(Collectors.joining(" "));
+                })
+                .limit(wordToFind)
+                .collect(Collectors.joining(" "));
+
         System.out.println(result);
     }
 
