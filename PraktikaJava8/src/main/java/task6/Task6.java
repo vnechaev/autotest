@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 
 public class Task6 {
-    public static void taskDo(){
+    public static void main(String[] args) {
         List<String> listStudent = new ArrayList<String>();
         listStudent.add("Саша,ФРТК");
         listStudent.add("Паша,ФРТК");
@@ -45,11 +45,6 @@ public class Task6 {
                         (oldValue, newValue) -> oldValue,
                         LinkedHashMap::new));
         System.out.println(sortedMap);
-        System.out.println("=======================================================");
-    }
-
-    public static void main(String[] args) {
-        Task6.taskDo();
     }
 
 }

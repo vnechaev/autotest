@@ -9,13 +9,13 @@ import java.util.function.Predicate;
 если intFunc1 <= 0
  */
 public class Task8 {
-    public static void taskDo() {
-        Predicate<Integer> pred1 = x -> x > 0;
-        Predicate<Integer> pred2 = x -> x < 0 || x == 0;
-        Function<Integer, Integer> intFunc = x -> x + 1;
+    public <T> Task8() {
+        Predicate<T> pred1 = x -> true;
+        Predicate<T> pred2 = x -> false;
+        Function<T, Integer> intFunc = x ->  1;
 
-        Predicate<Integer> check = x -> intFunc.apply(x) > 0;
+        Predicate<T> check = x -> intFunc.apply(x) > 0;
 //        Ответ:
-        Function<Integer, Predicate<Integer>> checkNull = inte -> check.and(pred1).or(check.negate().and(pred2));
+        Function<T, Predicate<T>> checkNull = inte -> check.and(pred1).or(check.negate().and(pred2));
     }
 }
