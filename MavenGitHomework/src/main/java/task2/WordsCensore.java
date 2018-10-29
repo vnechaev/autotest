@@ -82,9 +82,9 @@ public class WordsCensore {
         System.out.println(result);
     }
 
-    public static void main(String[] args) {
-        WordsCensore values = new WordsCensore(args);
-        CmdLineParser parser = new CmdLineParser(values);
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        WordsCensore wordsCensore = new WordsCensore(args);
+        CmdLineParser parser = new CmdLineParser(wordsCensore);
 
         try {
             parser.parseArgument(args);
@@ -92,7 +92,9 @@ public class WordsCensore {
             System.exit(1);
         }
 
-        System.out.println("start - " + values.getStart());
-        System.out.println("size - " + values.getSize());
+        System.out.println("start - " + wordsCensore.getStart());
+        System.out.println("size - " + wordsCensore.getSize());
+
+        wordsCensore.doTask();
     }
 }
