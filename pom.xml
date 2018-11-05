@@ -37,6 +37,7 @@
     <modules>
         <module>MavenGitHomework</module>
         <module>PraktikaJava8</module>
+        <module>junitHamcrestMockito</module>
     </modules>
 
     <dependencies>
