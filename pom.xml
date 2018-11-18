@@ -35,8 +35,8 @@
         </plugins>
     </build>
     <modules>
-        <module>MavenGitHomework</module>
         <module>PraktikaJava8</module>
+        <module>SeleniumAPI</module>
     </modules>
 
     <dependencies>
