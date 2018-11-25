@@ -1,15 +1,16 @@
-package pages.task1;
+package pages;
 
+import data.Domain;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.AbstractPage;
 
 import java.util.List;
 
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.*;
 
+@Domain("https://www.google.ru")
 public class Google extends AbstractPage<Google> {
 
     private final String url = "https://www.google.ru/";
@@ -31,7 +32,7 @@ public class Google extends AbstractPage<Google> {
     private List<WebElement> resultCollection;
 
     public Google open() {
-        return super.open(url);
+        return super.open();
     }
 
     public Google pageShouldBeOpened() {

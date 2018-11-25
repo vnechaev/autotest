@@ -1,29 +1,24 @@
-package pages.task3;
+package pages;
 
-import org.hamcrest.Matchers;
+import data.Domain;
+import data.PageUrl;
+import data.UrlPattern;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactoryFinder;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.AbstractPage;
+import data.Sex;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@UrlPattern("/namesecret/")
+@Domain("https://horo.mail.ru")
+@PageUrl("/namesecret")
 public class NameSecret extends AbstractPage<NameSecret> {
-
-    private final String url = "https://horo.mail.ru/namesecret/";
-
-    public NameSecret(WebDriver driver) {
-        super(driver);
-    }
-
-    public NameSecret open() {
-        return super.open(url);
-    }
-
     @FindBy(xpath = "//button[./span/div[contains(text(), 'Узнать тайну имени')]]")
     private WebElement discoverNameSecret;
 
@@ -35,6 +30,14 @@ public class NameSecret extends AbstractPage<NameSecret> {
 
     @FindBy(xpath = "//div[./div[@class = 'newsitem__params']]")
     private WebElement searchResult;
+
+    public NameSecret(WebDriver driver) {
+        super(driver);
+    }
+
+    public NameSecret open() {
+        return super.open();
+    }
 
 
     protected NameSecret pageShouldBeOpened() {

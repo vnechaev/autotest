@@ -1,4 +1,4 @@
-package pages.task3;
+package data;
 
 public enum Sex {
     MALE("Мужские", "мужское имя"),

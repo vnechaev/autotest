@@ -1,4 +1,4 @@
-package main.task3;
+package main;
 
 import data.BrowsersData;
 import drivers.WebDriverFactory;
@@ -7,8 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pages.task3.NameSecret;
-import pages.task3.Sex;
+import pages.NameSecret;
+import data.Sex;
 
 public class NameSecretTest {
 

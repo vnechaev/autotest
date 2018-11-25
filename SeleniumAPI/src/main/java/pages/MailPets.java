@@ -1,14 +1,20 @@
-package pages.task2;
+package pages;
 
+import data.Domain;
+import data.PageUrl;
+import data.UrlPattern;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.AbstractPage;
 
 import static org.junit.Assert.assertEquals;
 
+
+@Domain("https://pets.mail.ru")
+@PageUrl("/news")
+@UrlPattern("/news/")
 public class MailPets extends AbstractPage<MailPets> {
 
     private final String url = "https://pets.mail.ru/news/";
@@ -21,7 +27,7 @@ public class MailPets extends AbstractPage<MailPets> {
     private WebElement showMoreButton;
 
     public MailPets open() {
-        return super.open(url);
+        return super.open();
     }
 
 

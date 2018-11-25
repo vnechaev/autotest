@@ -1,4 +1,4 @@
-package main.task1;
+package main;
 
 import data.BrowsersData;
 import drivers.WebDriverFactory;
@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pages.task1.Google;
+import pages.MailPets;
 
-public class GoogleSearchTest {
+public class MailPetsTest {
 
     private WebDriver driver = null;
 
@@ -24,13 +24,10 @@ public class GoogleSearchTest {
     }
 
     @Test
-    public void checkResultsOfSearch() {
-        new Google(driver)
+    public void checkShowMoreButton() {
+        new MailPets(driver)
                 .open()
-                .setTextToSearch("Hello world")
-                .executeSearch()
-                .checkCollectoinElementResults()
-                .checkResultsNumText();
+                .checkShowMoreButton();
     }
 
 }
