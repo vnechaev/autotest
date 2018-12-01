@@ -42,21 +42,25 @@ public class Google extends AbstractPage<Google> {
     }
 
     public Google setTextToSearch(String text) {
+        log.info("ЗАполнение текстового поля поиска текстом " + text);
         searchInput.sendKeys(text);
         return this;
     }
 
     public Google executeSearch() {
+        log.info("Нажатие на кнопку 'Выполнить поиск'");
         executeSearch.click();
         return this;
     }
 
     public Google checkCollectoinElementResults() {
+        log.info("Проверка количества выданных ");
         assertNotEquals("Количество элементов для поиска неверно", 0, resultCollection.size());
         return this;
     }
 
     public Google checkResultsNumText() {
+        log.info("Проверка отсутствия реультатов поиска");
         /*
         При отсутствии результатов поиска(результатов поиска 0) используются другие html элементы,
         фраза "Результатов поиска 0" не используется

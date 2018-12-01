@@ -18,7 +18,7 @@ import wait.StandartWaiter;
 public abstract class AbstractPage<T> {
     protected WebDriver driver = null;
     protected StandartWaiter standartWaiter = null;
-    private static Logger log = Logger.getLogger(AbstractPage.class.getName());
+    protected Logger log = Logger.getLogger(AbstractPage.class.getName());
 
 
     public AbstractPage(WebDriver driver) {
@@ -29,7 +29,7 @@ public abstract class AbstractPage<T> {
 
 
     protected T open() {
-        System.out.println(getDomain() + getPagetUrl());
+        log.info("Открытие страницы " + getDomain() + getPagetUrl());
         driver.get(getDomain() + getPagetUrl());
 
         return (T) this;

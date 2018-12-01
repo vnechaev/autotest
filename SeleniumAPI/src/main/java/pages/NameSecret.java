@@ -45,12 +45,14 @@ public class NameSecret extends AbstractPage<NameSecret> {
     }
 
     public NameSecret fillNameForSearch(String name) {
+        log.info("Заполнение поля \"Имя\" текстом " + name);
         nameTextInput.sendKeys(name);
         return this;
     }
 
 
     public NameSecret doSearchByLetter(String letterUpperCase) {
+        log.info("Сделать поиск только по именам, начинающимся с буквы " + letterUpperCase);
         driver.findElements(By.cssSelector(".filter__text")).stream()
                 .filter(elem -> elem.getText().equals(letterUpperCase))
                 .findFirst().get().click();
@@ -58,6 +60,7 @@ public class NameSecret extends AbstractPage<NameSecret> {
     }
 
     public NameSecret checkAlphaBetaFilter(String letterUpperCase) {
+        log.info("Проверка фильтра по первой букве");
         List<String> valueList = driver.findElements(By.xpath("//div[@class='p-terms-list']//span[@class = 'link__text']")).stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
@@ -70,23 +73,27 @@ public class NameSecret extends AbstractPage<NameSecret> {
     }
 
     public int getResultNum() {
+        log.info("Получить количество результатов поиска");
         standartWaiter.waitForCondition(ExpectedConditions.visibilityOf(searchResult));
         return driver.findElements(By.xpath("//div[./div[@class = 'newsitem__params']]")).size();
     }
 
     public int getSexFilteredResultFromNotFiltered(Sex sex) {
+        log.info("Получиние количества записей с полом, равным" + sex);
         standartWaiter.waitForCondition(ExpectedConditions.visibilityOf(searchResult));
         return (int)driver.findElements(By.xpath("//span[@class='newsitem__param']")).stream()
                 .filter(elem -> elem.getText().equals(sex.getResultNameType())).count();
     }
 
     public NameSecret selectSex(Sex sex) {
+        log.info("Настройки поиска - выбор пола " + sex);
         openDropDownSelect.click();
         driver.findElement(By.xpath(String.format("//div[contains(text(), '%s')]", sex.getSearchTypeSex()))).click();
         return this;
     }
 
     public NameSecret executeSearch() {
+        log.info("Выполнить поиск");
         discoverNameSecret.click();
         return this;
     }

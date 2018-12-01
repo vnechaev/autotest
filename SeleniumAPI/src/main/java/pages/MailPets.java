@@ -38,6 +38,7 @@ public class MailPets extends AbstractPage<MailPets> {
     }
 
     public MailPets checkShowMoreButton() {
+        log.info("Проверка существования кнопки \"Показать ещё\"");
         standartWaiter.waitForCondition(ExpectedConditions.visibilityOf(showMoreButton));
         Assert.assertTrue("Кнопка Показать еще не отображается", showMoreButton.isDisplayed());
         return this;
