@@ -37,6 +37,7 @@
     <modules>
         <module>PraktikaJava8</module>
         <module>SeleniumAPI</module>
+        <module>SeleniumAPI2</module>
     </modules>
 
     <dependencies>
